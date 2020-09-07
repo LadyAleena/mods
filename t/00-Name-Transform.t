@@ -5,7 +5,7 @@ use v5.8.8;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Name::Transform' )
+  use_ok( 'Name::Transform', qw(name_transform) )
     or die "Name::Transform is not available\n";
 }
 

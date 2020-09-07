@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Food' )
+  use_ok( 'Random::Food', qw(random_food random_drink) )
     or die "Random::Food is not available\n";
 }
 

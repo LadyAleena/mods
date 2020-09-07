@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Size' )
+  use_ok( 'Random::Size', qw(random_size) )
     or die "Random::Size is not available\n";
 }
 

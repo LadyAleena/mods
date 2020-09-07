@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::Alignment' )
+  use_ok( 'Random::RPG::Alignment', qw(random_alignment) )
     or die "Random::RPG::Alignment is not available\n";
 }
 

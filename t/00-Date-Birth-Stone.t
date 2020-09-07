@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Date::Birth::Stone' )
+  use_ok( 'Date::Birth::Stone', qw(birth_stone) )
     or die "Date::Birth::Stone is not available\n";
 }
 

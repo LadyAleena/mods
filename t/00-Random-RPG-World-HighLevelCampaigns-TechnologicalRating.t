@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::HighLevelCampaigns::TechnologicalRating' )
+  use_ok( 'Random::RPG::World::HighLevelCampaigns::TechnologicalRating', qw(random_technological_rating) )
     or die "Random::RPG::World::HighLevelCampaigns::TechnologicalRating is not available\n";
 }
 

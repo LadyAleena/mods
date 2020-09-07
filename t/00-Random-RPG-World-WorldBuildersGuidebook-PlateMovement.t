@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PlateMovement' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PlateMovement', qw(random_plate_movement) )
     or die "Random::RPG::World::WorldBuildersGuidebook::PlateMovement is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Open' )
+  use_ok( 'Fancy::Open', qw(fancy_open) )
     or die "Fancy::Open is not available\n";
 }
 

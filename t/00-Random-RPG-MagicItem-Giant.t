@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::MagicItem::Giant' )
+  use_ok( 'Random::RPG::MagicItem::Giant', qw(random_gauntlets random_girdle) )
     or die "Random::RPG::MagicItem::Giant is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PrevailingWinds' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PrevailingWinds', qw(random_prevailing_winds) )
     or die "Random::RPG::World::WorldBuildersGuidebook::PrevailingWinds is not available\n";
 }
 

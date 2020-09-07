@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PlanetaryTemperature' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::PlanetaryTemperature', qw(random_planetary_temperature) )
     or die "Random::RPG::World::WorldBuildersGuidebook::PlanetaryTemperature is not available\n";
 }
 

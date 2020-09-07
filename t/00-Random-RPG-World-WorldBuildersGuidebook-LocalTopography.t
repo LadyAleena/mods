@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::LocalTopography' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::LocalTopography', qw(local_topography) )
     or die "Random::RPG::World::WorldBuildersGuidebook::LocalTopography is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Water' )
+  use_ok( 'Random::Water', qw(random_water) )
     or die "Random::Water is not available\n";
 }
 

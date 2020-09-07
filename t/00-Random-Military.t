@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Military' )
+  use_ok( 'Random::Military', qw(random_military random_military_by_location) )
     or die "Random::Military is not available\n";
 }
 

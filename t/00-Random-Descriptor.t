@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Descriptor' )
+  use_ok( 'Random::Descriptor', qw(random_descriptor) )
     or die "Random::Descriptor is not available\n";
 }
 

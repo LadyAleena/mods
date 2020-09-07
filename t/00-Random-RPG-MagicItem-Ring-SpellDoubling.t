@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::MagicItem::Ring::SpellDoubling' )
+  use_ok( 'Random::RPG::MagicItem::Ring::SpellDoubling', qw(make_ring random_ring) )
     or die "Random::RPG::MagicItem::Ring::SpellDoubling is not available\n";
 }
 

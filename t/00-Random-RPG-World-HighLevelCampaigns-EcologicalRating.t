@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::HighLevelCampaigns::EcologicalRating' )
+  use_ok( 'Random::RPG::World::HighLevelCampaigns::EcologicalRating', qw(random_ecological_rating) )
     or die "Random::RPG::World::HighLevelCampaigns::EcologicalRating is not available\n";
 }
 

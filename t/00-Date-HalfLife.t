@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Date::HalfLife' )
+  use_ok( 'Date::HalfLife', qw(half_life_date) )
     or die "Date::HalfLife is not available\n";
 }
 

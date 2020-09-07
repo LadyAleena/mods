@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fun::AstroBody' )
+  use_ok( 'Fun::AstroBody', qw(astro_body) )
     or die "Fun::AstroBody is not available\n";
 }
 

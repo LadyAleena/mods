@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::RegionalDistribution' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::RegionalDistribution', qw(regional_distribution) )
     or die "Random::RPG::World::WorldBuildersGuidebook::RegionalDistribution is not available\n";
 }
 

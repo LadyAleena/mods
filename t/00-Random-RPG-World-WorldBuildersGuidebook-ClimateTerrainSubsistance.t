@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance', qw(random_climate random_terrain random_subsistance climate_chart) )
     or die "Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance is not available\n";
 }
 

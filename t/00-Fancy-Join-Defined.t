@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Join::Defined' )
+  use_ok( 'Fancy::Join::Defined', qw(join_defined) )
     or die "Fancy::Join::Defined is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Name::Pattern' )
+  use_ok( 'Random::Name::Pattern', qw(random_name) )
     or die "Random::Name::Pattern is not available\n";
 }
 

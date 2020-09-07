@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Xanth::Dragon' )
+  use_ok( 'Random::Xanth::Dragon', qw(random_Xanth_dragon random_old_Xanth_dragon) )
     or die "Random::Xanth::Dragon is not available\n";
 }
 

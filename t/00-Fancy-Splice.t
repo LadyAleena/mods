@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Splice' )
+  use_ok( 'Fancy::Splice', qw(fancy_splice) )
     or die "Fancy::Splice is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::HighLevelCampaigns::MagicalRating' )
+  use_ok( 'Random::RPG::World::HighLevelCampaigns::MagicalRating', qw(random_magical_rating) )
     or die "Random::RPG::World::HighLevelCampaigns::MagicalRating is not available\n";
 }
 

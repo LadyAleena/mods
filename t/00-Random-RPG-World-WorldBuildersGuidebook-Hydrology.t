@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Hydrology' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Hydrology', qw(random_hydrology) )
     or die "Random::RPG::World::WorldBuildersGuidebook::Hydrology is not available\n";
 }
 

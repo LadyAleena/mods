@@ -5,7 +5,7 @@ use v5.8.8;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Date::Month::Number' )
+  use_ok( 'Date::Month::Number', qw(month_number) )
     or die "Date::Month::Number is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::WildPsionics' )
+  use_ok( 'Random::RPG::WildPsionics', qw(random_wild_psionic_talent) )
     or die "Random::RPG::WildPsionics is not available\n";
 }
 

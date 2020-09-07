@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Alpha' )
+  use_ok( 'Random::Alpha', qw(random_alpha) )
     or die "Random::Alpha is not available\n";
 }
 

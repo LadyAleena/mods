@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Coastlines' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Coastlines', qw(random_coastlines) )
     or die "Random::RPG::World::WorldBuildersGuidebook::Coastlines is not available\n";
 }
 

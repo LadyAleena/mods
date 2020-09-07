@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fun::ConvertFileSize' )
+  use_ok( 'Fun::ConvertFileSize', qw(convert_filesize) )
     or die "Fun::ConvertFileSize is not available\n";
 }
 

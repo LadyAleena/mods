@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::FamilyMember' )
+  use_ok( 'Random::FamilyMember', qw(random_family_member) )
     or die "Random::FamilyMember is not available\n";
 }
 

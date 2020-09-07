@@ -5,7 +5,7 @@ use v5.16.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Sort::Split' )
+  use_ok( 'Fancy::Sort::Split', qw(split_sort) )
     or die "Fancy::Sort::Split is not available\n";
 }
 

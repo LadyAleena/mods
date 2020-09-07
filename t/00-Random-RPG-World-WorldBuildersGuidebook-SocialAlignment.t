@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SocialAlignment' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SocialAlignment', qw(random_social_alignment) )
     or die "Random::RPG::World::WorldBuildersGuidebook::SocialAlignment is not available\n";
 }
 

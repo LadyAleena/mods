@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::WorldHooks' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::WorldHooks', qw(world_hook) )
     or die "Random::RPG::World::WorldBuildersGuidebook::WorldHooks is not available\n";
 }
 

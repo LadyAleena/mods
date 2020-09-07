@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Government' )
+  use_ok( 'Random::Government', qw(random_government) )
     or die "Random::Government is not available\n";
 }
 

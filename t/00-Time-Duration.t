@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Time::Duration' )
+  use_ok( 'Time::Duration', qw(duration) )
     or die "Time::Duration is not available\n";
 }
 

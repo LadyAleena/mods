@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Date::Birth::ZodiacStone' )
+  use_ok( 'Date::Birth::ZodiacStone', qw(zodiac_sign zodiac_stone) )
     or die "Date::Birth::ZodiacStone is not available\n";
 }
 

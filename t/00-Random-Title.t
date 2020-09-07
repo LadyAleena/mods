@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Title' )
+  use_ok( 'Random::Title', qw(random_title) )
     or die "Random::Title is not available\n";
 }
 

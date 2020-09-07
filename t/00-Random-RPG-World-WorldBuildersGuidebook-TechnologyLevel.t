@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::TechnologyLevel' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::TechnologyLevel', qw(random_technology_level) )
     or die "Random::RPG::World::WorldBuildersGuidebook::TechnologyLevel is not available\n";
 }
 

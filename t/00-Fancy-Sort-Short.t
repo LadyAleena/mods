@@ -5,7 +5,7 @@ use v5.16.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Sort::Short' )
+  use_ok( 'Fancy::Sort::Short', qw(short_sort) )
     or die "Fancy::Sort::Short is not available\n";
 }
 

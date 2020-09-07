@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Name::Triador' )
+  use_ok( 'Random::Name::Triador', qw(Yrethi_place_name Zilarban_place_name additions) )
     or die "Random::Name::Triador is not available\n";
 }
 

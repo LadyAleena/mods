@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Map' )
+  use_ok( 'Fancy::Map', qw(fancy_map) )
     or die "Fancy::Map is not available\n";
 }
 

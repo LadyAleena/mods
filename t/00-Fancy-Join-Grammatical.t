@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Fancy::Join::Grammatical' )
+  use_ok( 'Fancy::Join::Grammatical', qw(grammatical_join) )
     or die "Fancy::Join::Grammatical is not available\n";
 }
 

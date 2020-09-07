@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::LocalDistribution' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::LocalDistribution', qw(local_distribution) )
     or die "Random::RPG::World::WorldBuildersGuidebook::LocalDistribution is not available\n";
 }
 

@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::HighLevelCampaigns::ChronologicalRating' )
+  use_ok( 'Random::RPG::World::HighLevelCampaigns::ChronologicalRating', qw(random_chronological_rating) )
     or die "Random::RPG::World::HighLevelCampaigns::ChronologicalRating is not available\n";
 }
 

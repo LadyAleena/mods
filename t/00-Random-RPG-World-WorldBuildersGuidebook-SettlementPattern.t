@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SettlementPattern' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SettlementPattern', qw(random_settlement_pattern) )
     or die "Random::RPG::World::WorldBuildersGuidebook::SettlementPattern is not available\n";
 }
 

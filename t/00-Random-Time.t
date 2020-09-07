@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::Time' )
+  use_ok( 'Random::Time', qw(random_time_unit random_day_part random_time random_frequency) )
     or die "Random::Time is not available\n";
 }
 

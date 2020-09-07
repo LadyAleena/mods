@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SeasonalVariations' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SeasonalVariations', qw(random_seasonal_variations) )
     or die "Random::RPG::World::WorldBuildersGuidebook::SeasonalVariations is not available\n";
 }
 

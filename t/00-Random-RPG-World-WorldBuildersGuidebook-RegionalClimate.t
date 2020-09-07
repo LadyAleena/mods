@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::RegionalClimate' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::RegionalClimate', qw(random_regional_climate) )
     or die "Random::RPG::World::WorldBuildersGuidebook::RegionalClimate is not available\n";
 }
 

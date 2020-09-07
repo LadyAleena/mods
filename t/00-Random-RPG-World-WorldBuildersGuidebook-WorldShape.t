@@ -5,7 +5,7 @@ use v5.10.0;
 use Test::More;
 
 BEGIN {
-  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::WorldShape' )
+  use_ok( 'Random::RPG::World::WorldBuildersGuidebook::WorldShape', qw(random_world_shape) )
     or die "Random::RPG::World::WorldBuildersGuidebook::WorldShape is not available\n";
 }
 
