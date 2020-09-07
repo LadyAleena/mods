@@ -10,12 +10,11 @@ our $VERSION   = '1.000';
 our @EXPORT_OK = qw(
   random_misc
   random_emotion
+  random_filesize_unit
   random_game
-  random_generation
   random_group
   random_mental_condition
   random_non
-  random_parent
   random_relationship
   random_sexual_orientation
   random_shadow
