@@ -1,0 +1,14 @@
+#!perl
+use strict;
+use warnings;
+use v5.10.0;
+use Test::More;
+
+BEGIN {
+  use_ok( 'Time::Duration' )
+    or die "Time::Duration is not available\n";
+}
+
+diag( "Testing Time::Duration $Time::Duration::VERSION, Perl $], $^X" );
+
+done_testing();
