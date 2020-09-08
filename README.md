@@ -10,13 +10,13 @@ I am quite unsure of myself when it comes to formal writing in Perl and a more f
 
 While I say these are groups, they are mostly independent of each other with the exception of the Random modules, which depend on [Fancy::Rand](lib/Fancy/Rand.pm).
 
-[Date](lib/Date): These modules were written for fun and are not used on my site. You can [readme](lib/Date/readme.md) for more information.
+[Date](lib/Date): These modules were written for fun. You can [readme](lib/Date/readme.md) for more information.
 
 [Fancy](lib/Fancy): These modules were written to allow for more fancy usage of some functions. You can [readme](lib/Fancy/readme.md) for more information.
 
-[Fun](lib/Fun): These modules were written for fun and are not used on my site. You can [readme](lib/Fun/readme.md) for more information.
+[Fun](lib/Fun): These modules were written for fun. You can [readme](lib/Fun/readme.md) for more information.
 
-[Random](lib/Random): These modules started out as helpers to my [character mutations generator](https://github.com/LadyAleena/Lady_Aleena/blob/master/files/lib/Page/RolePlaying/Character/Mutation.pm), but they have since grown to include generators for many many more things. The data for these modules are in [auto/Random](auto/Random). It includes a [readme](Random/readme.md) for more information.
+[Random](lib/Random): These modules started out as helpers to my [character mutations generator](https://github.com/LadyAleena/Lady_Aleena/blob/master/files/lib/Page/RolePlaying/Character/Mutation.pm), but they have since grown to include generators for many many more things. The data for these modules are in [lib/auto/Random](lib/auto/Random). It includes a [readme](lib/Random/readme.md) for more information.
 
 ### Individual modules
 
@@ -27,14 +27,7 @@ While I say these are groups, they are mostly independent of each other with the
 
 ## Tests
 
-I have not started writing tests yet, but will sometime soon. If you wish to contribute a test, please use the following filename style.
-
-```
-t/##-Module-Name.t          # for whole module tests
-t/##-Module-Name-subroutine # for subroutine specific tests
-                            # I doubt this will be necessary,
-                            # but I never know.
-```
+I have not started writing tests for the inner workings of the modules yet, but will sometime soon.
 
 ## Notes
 
