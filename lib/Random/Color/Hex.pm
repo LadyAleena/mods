@@ -65,6 +65,10 @@ This document describes Random::Color::Hex version 1.000.
 
 Random::Color::Hex depends on L<Fancy::Split> and L<Exporter>.
 
+=head1 SEE ALSO
+
+More random colors can be found in L<Random::Color>, L<Random::GemMetalJewelry>, L<Random::Color::Web>, or L<Random::Color:VisiBone>.
+
 =head1 AUTHOR
 
 Lady Aleena

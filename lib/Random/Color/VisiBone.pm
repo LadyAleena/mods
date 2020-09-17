@@ -27,7 +27,7 @@ sub random_VisiBone_color {
   my $hue = random_VisiBone_color_attribute('hue');
 
   my $color;
-  if ($brightness eq 'white'||$brightness eq 'black') {
+  if ($brightness eq 'white' || $brightness eq 'black') {
     $color = $brightness;
   }
   elsif ($vividness eq 'grey') {
@@ -59,6 +59,10 @@ This document describes Random::Color::VisiBone version 1.000.
 =head1 DEPENDENCIES
 
 Random::Color::VisiBone depends on L<Fancy::Rand> and L<Exporter>.
+
+=head1 SEE ALSO
+
+More random colors can be found in L<Random::Color>, L<Random::GemMetalJewelry>, L<Random::Color::Hex>, or L<Random::Color:Web>.
 
 =head1 AUTHOR
 
