@@ -75,7 +75,7 @@ All of Random::RPG modules are based on and are for *Advanced Dungeons & Dragons
 * [**Random::RPG::SavingThrow**](RPG/SavingThrow.pm) returns random saving throws.
 * [**Random::RPG::SpecialAttack**](RPG/SpecialAttack.pm) returns random special attacks. It also depends on [Fancy::Join::Defined](../Fancy/Join/Defined.pm), Random::SpecialDice, and Random::Time.
 * [Random::RPG::Spell](RPG/Spell.pm) returns random spells and spell actions. It also depends on Random::SpecialDice and [Lingua::EN::Inflect](https://metacpan.org/pod/Lingua::EN::Inflect).
-* [**Random::RPG::Weapon**](RPG/Weapon.pm) returns random weapons. It also depends on [File::ShareDir](https://metacpan.org/pod/File::ShareDir),[Games::Dice](https://metacpan.org/pod/Games::Dice), [String::Util](https://metacpan.org/pod/String::Util), [Text::CSV](https://metacpan.org/pod/Text::CSV).
+* [**Random::RPG::Weapon**](RPG/Weapon.pm) returns random weapons. It also depends on [File::ShareDir](https://metacpan.org/pod/File::ShareDir), [Games::Dice](https://metacpan.org/pod/Games::Dice), [String::Util](https://metacpan.org/pod/String::Util), and [Text::CSV](https://metacpan.org/pod/Text::CSV).
 * [Random::RPG::WildPsionics](RPG/WildPsionics.pm) returns random wild psionic talents. It also depends on File::ShareDir, Games::Dice, Lingua::EN::Inflect, [List::Util](https://metacpan.org/pod/List::Util), and Text::CSV.
 
 #### Random::RPG::MagicItem
