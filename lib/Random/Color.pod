@@ -240,7 +240,7 @@ Random::Color depends on L<Fancy::Rand>, L<Fancy::Open>, L<File::ShareDir>, and 
 
 =head1 SEE ALSO
 
-More random colors can be found in L<Random::GemMetalJewelry>.
+More random colors can be found in L<Random::GemMetalJewelry>, L<Random::Color::Hex>, L<Random::Color::VisiBone>, and L<Random::Color::Web>.
 
 =head1 NOTE
 
