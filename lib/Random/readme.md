@@ -50,7 +50,7 @@ While these modules generate random colors, they are not dependent on [Random::C
 
 * [*Random::Color::Hex*](Color/Hex.pm) returns random colors. It depends on [Fancy::Split](../Fancy/Split.pm).
 * [**Random::Color::VisiBone**](Color/VisiBone.pm) returns random colors based on the Web Designer's Color Reference Poster by [VisiBone](http://www.visibone.com/color/poster4x.html).
-* [**Random::Color::Web**](Color/Web.pm) returns random named web colors. It also depends on [Fancy::Open](../Fancy/Open.pm) and [File::ShareDir](https://metacpan.org/pod/File::ShareDir).
+* [**Random::Color::Web**](Color/Web.pm) returns random named web colors. It also depends on [Fancy::Open](../Fancy/Open.pm) and [File::ShareDir](https://metacpan.org/pod/File::ShareDir). The data for this module is in [auto/Random/Color/Web](../auto/Random/Color/Web).
 
 ### Random::Name
 
@@ -75,8 +75,8 @@ All of Random::RPG modules are based on and are for *Advanced Dungeons & Dragons
 * [**Random::RPG::SavingThrow**](RPG/SavingThrow.pm) returns random saving throws.
 * [**Random::RPG::SpecialAttack**](RPG/SpecialAttack.pm) returns random special attacks. It also depends on [Fancy::Join::Defined](../Fancy/Join/Defined.pm), Random::SpecialDice, and Random::Time.
 * [Random::RPG::Spell](RPG/Spell.pm) returns random spells and spell actions. It also depends on Random::SpecialDice and [Lingua::EN::Inflect](https://metacpan.org/pod/Lingua::EN::Inflect).
-* [**Random::RPG::Weapon**](RPG/Weapon.pm) returns random weapons. It also depends on [File::ShareDir](https://metacpan.org/pod/File::ShareDir), [Games::Dice](https://metacpan.org/pod/Games::Dice), [String::Util](https://metacpan.org/pod/String::Util), and [Text::CSV](https://metacpan.org/pod/Text::CSV).
-* [Random::RPG::WildPsionics](RPG/WildPsionics.pm) returns random wild psionic talents. It also depends on File::ShareDir, Games::Dice, Lingua::EN::Inflect, [List::Util](https://metacpan.org/pod/List::Util), and Text::CSV.
+* [**Random::RPG::Weapon**](RPG/Weapon.pm) returns random weapons. It also depends on [File::ShareDir](https://metacpan.org/pod/File::ShareDir), [Games::Dice](https://metacpan.org/pod/Games::Dice), [String::Util](https://metacpan.org/pod/String::Util), and [Text::CSV](https://metacpan.org/pod/Text::CSV). The data for this module is in [auto/Random/RPG/Weapon](../auto/Random/RPG/Weapon).
+* [Random::RPG::WildPsionics](RPG/WildPsionics.pm) returns random wild psionic talents. It also depends on File::ShareDir, Games::Dice, Lingua::EN::Inflect, [List::Util](https://metacpan.org/pod/List::Util), and Text::CSV. The data for this module is in [auto/Random/RPG/WildPsionics](../auto/Random/RPG/WildPsionics).
 
 #### Random::RPG::MagicItem
 
