@@ -1,0 +1,190 @@
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+B<Random::Color::Web> returns a random named HTML color.
+
+=head1 VERSION
+
+This document describes Random::Color::Web version 1.000.
+
+=head1 SYNOPSIS
+
+  my $html_blue   = random_web_color('blue');
+  my $html_brown  = random_web_color('brown');
+  my $html_cyan   = random_web_color('cyan');
+  my $html_gray   = random_web_color('gray');
+  my $html_green  = random_web_color('green');
+  my $html_orange = random_web_color('orange');
+  my $html_pink   = random_web_color('pink');
+  my $html_purple = random_web_color('purple');
+  my $html_red    = random_web_color('red');
+  my $html_white  = random_web_color('white');
+  my $html_yellow = random_web_color('yellow');
+
+  print random_web_color('help'); # get random_web_color options
+
+=head1 DESCRIPTION
+
+Random::Color::Web returns a random named HTML color from a list of colors.
+
+=head2 random_web_color
+
+=head3 Options
+
+=head4 nothing, all, or undef
+
+  random_web_color;
+  random_web_color();
+  random_web_color('all');
+  random_web_color(undef);
+
+These options will return any value in any list. You can read the options below to see all of the potential values.
+
+=head4 blue
+
+  random_web_color('blue');
+
+The C<blue> option returns blue, cornflowerblue, darkblue, deepskyblue, dodgerblue, lightblue, lightskyblue, lightsteelblue, mediumblue, midnightblue, navy, powderblue, royalblue, skyblue, or steelblue.
+
+=head4 brown
+
+  random_web_color('brown');
+
+The C<brown> option returns bisque, blanchedalmond, brown, burlywood, chocolate, cornsilk, darkgoldenrod, goldenrod, maroon, navajowhite, peru, rosybrown, saddlebrown, sandybrown, sienna, tan, or wheat.
+
+=head4 cyan
+
+  random_web_color('cyan');
+
+The C<cyan> option returns aqua, aquamarine, cadetblue, cyan, darkcyan, darkturquoise, lightcyan, lightseagreen, mediumturquoise, paleturquoise, teal, or turquoise.
+
+=head4 gray
+
+  random_web_color('gray');
+
+The C<gray> option returns black, darkgray, darkslategray, dimgray, gainsboro, gray, lightgray, lightslategray, silver, or slategray.
+
+=head4 green
+
+  random_web_color('green');
+
+The C<green> option returns chartreuse, darkgreen, darkolivegreen, darkseagreen, forestgreen, green, greenyellow, lawngreen, lightgreen, lime, limegreen, mediumaquamarine, mediumseagreen, mediumspringgreen, olive, olivedrab, palegreen, seagreen, springgreen, or yellowgreen.
+
+=head4 orange
+
+  random_web_color('orange');
+
+The C<orange> option returns coral, darkorange, orange, orangered, or tomato.
+
+=head4 pink
+
+  random_web_color('pink');
+
+The C<pink> option returns deeppink, hotpink, lightpink, mediumvioletred, palevioletred, or pink.
+
+=head4 purple
+
+  random_web_color('purple');
+
+The C<purple> option returns blueviolet, darkmagenta, darkorchid, darkslateblue, darkviolet, fuchsia, indigo, lavender, magenta, mediumorchid, mediumpurple, mediumslateblue, orchid, plum, purple, slateblue, rebeccapurple, thistle, or violet.
+
+=head4 red
+
+  random_web_color('red');
+
+The C<red> option returns crimson, darkred, darksalmon, firebrick, indianred, lightcoral, lightsalmon, red, or salmon.
+
+=head4 white
+
+  random_web_color('white');
+
+The C<white> option returns aliceblue, antiquewhite, azure, beige, floralwhite, ghostwhite, honeydew, ivory, lavenderblush, linen, mintcream, mistyrose, oldlace, seashell, snow, white, or whitesmoke.
+
+=head4 yellow
+
+  random_web_color('yellow');
+
+The C<yellow> option returns darkkhaki, gold, khaki, lemonchiffon, lightgoldenrodyellow, lightyellow, moccasin, palegoldenrod, papayawhip, peachpuff, or yellow.
+
+=head4 css 1
+
+  random_web_color('css 1');
+
+The C<css 1> option returns aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, or yellow .
+
+=head4 css 2
+
+  random_web_color('css 2');
+
+The C<css 2> option returns any of the C<css 1> colors or orange.
+
+=head4 css 3
+
+  random_web_color('css 3');
+
+The C<css 3> option returns any of the C<css 2> colors or aliceblue, antiquewhite, aquamarine, azure, beige, bisque, blanchedalmond, blueviolet, brown, burlywood, cadetblue, chartreuse, chocolate, coral, cornflowerblue, cornsilk, crimson, cyan, darkblue, darkcyan, darkgoldenrod, darkgray, darkgreen, darkgrey, darkkhaki, darkmagenta, darkolivegreen, darkorange, darkorchid, darkred, darksalmon, darkseagreen, darkslateblue, darkslategray, darkslategrey, darkturquoise, darkviolet, deeppink, deepskyblue, dimgray, dimgrey, dodgerblue, firebrick, floralwhite, forestgreen, gainsboro, ghostwhite, gold, goldenrod, greenyellow, grey, honeydew, hotpink, indianred, indigo, ivory, khaki, lavender, lavenderblush, lawngreen, lemonchiffon, lightblue, lightcoral, lightcyan, lightgoldenrodyellow, lightgray, lightgreen, lightgrey, lightpink, lightsalmon, lightseagreen, lightskyblue, lightslategray, lightslategrey, lightsteelblue, lightyellow, limegreen, linen, magenta, mediumaquamarine, mediumblue, mediumorchid, mediumpurple, mediumseagreen, mediumslateblue, mediumspringgreen, mediumturquoise, mediumvioletred, midnightblue, mintcream, mistyrose, moccasin, navajowhite, oldlace, olivedrab, orangered, orchid, palegoldenrod, palegreen, paleturquoise, palevioletred, papayawhip, peachpuff, peru, pink, plum, powderblue, rosybrown, royalblue, saddlebrown, salmon, sandybrown, seagreen, seashell, sienna, skyblue, slateblue, slategray, slategrey, snow, springgreen, steelblue, tan, thistle, tomato, turquoise, violet, wheat, whitesmoke, or yellowgreen.
+
+=head4 css 4
+
+  random_web_color('css 4');
+
+The C<css 4> option returns any of the C<css 3> colors or rebeccapurple.
+
+=head4 by keys
+
+  random_web_color('by keys');
+
+The C<by keys> option returns a random key listed above.
+
+=head4 keys
+
+  random_web_color('keys');
+
+The C<keys> option will list all of the available keys in an array reference.
+
+=head4 data
+
+  random_web_color('data');
+
+The C<data> option will return the data used in a hash reference.
+
+=head4 help or options
+
+  random_web_color('help');
+  random_web_color('options');
+
+The C<help> or C<options> options will return a list of all of your options.
+
+=head3 Adding items to a list
+
+You can add items to the list by adding an array reference with the additional items as the second parameter.
+
+  my @additions = ('transparent', 'currentcolor', 'inherit', 'initial', 'unset');
+  random_web_color('<your option>', \@additions);
+
+=head1 DEPENDENCIES
+
+Random::Color::Web depends on L<Fancy::Rand>, L<Fancy::Open>, L<File::ShareDir>, and L<Exporter>.
+
+=head1 SEE ALSO
+
+More random colors can be found in L<Random::Color>, L<Random::GemMetalJewelry>, L<Random::Color::Hex>, or L<Random::Color:VisiBone>.
+
+=head1 NOTE
+
+I am always looking for more lists of colors to add, so please send your lists of colors.
+
+=head1 AUTHOR
+
+Lady Aleena
+
+=head1 LICENSE AND COPYRIGHT
+
+This module is free software; you can redistribute it and/or modify it under the same terms as Perl itself. See L<perlartistic>.
+
+Copyright © 2020, Lady Aleena C<(aleena@cpan.org)>. All rights reserved.
+
+=cut
