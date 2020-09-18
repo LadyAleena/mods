@@ -11,4 +11,11 @@ BEGIN {
 
 diag( "Testing Date::Month::Number $Date::Month::Number::VERSION, Perl $], $^X" );
 
+# TEST
+is(
+    scalar(Date::Month::Number::month_number('January')),
+    1,
+    "testing that January is the 1st month",
+);
+
 done_testing();
