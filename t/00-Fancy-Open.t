@@ -50,21 +50,21 @@ is_deeply(
 );
 
 my @after_array_wanted = (
-"red bead",
-"orange bead",
-"yellow bead",
-"spring bead",
-"green bead",
-"teal bead",
-"cyan bead",
-"azure bead",
-"blue bead",
-"violet bead",
-"magenta bead",
-"pink bead",
-"white bead",
-"black bead",
-"gray bead"
+  "red bead",
+  "orange bead",
+  "yellow bead",
+  "spring bead",
+  "green bead",
+  "teal bead",
+  "cyan bead",
+  "azure bead",
+  "blue bead",
+  "violet bead",
+  "magenta bead",
+  "pink bead",
+  "white bead",
+  "black bead",
+  "gray bead"
 );
 
 my @after_array_run = Fancy::Open::fancy_open($file, { 'after' => ' bead' });
@@ -76,21 +76,21 @@ is_deeply(
 );
 
 my @both_array_wanted = (
-"solid red bead",
-"solid orange bead",
-"solid yellow bead",
-"solid spring bead",
-"solid green bead",
-"solid teal bead",
-"solid cyan bead",
-"solid azure bead",
-"solid blue bead",
-"solid violet bead",
-"solid magenta bead",
-"solid pink bead",
-"solid white bead",
-"solid black bead",
-"solid gray bead"
+  "solid red bead",
+  "solid orange bead",
+  "solid yellow bead",
+  "solid spring bead",
+  "solid green bead",
+  "solid teal bead",
+  "solid cyan bead",
+  "solid azure bead",
+  "solid blue bead",
+  "solid violet bead",
+  "solid magenta bead",
+  "solid pink bead",
+  "solid white bead",
+  "solid black bead",
+  "solid gray bead"
 );
 
 my @both_array_run = Fancy::Open::fancy_open($file, { 'before' => 'solid ', 'after' => ' bead' });
