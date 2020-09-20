@@ -1,0 +1,15 @@
+red
+orange
+yellow
+spring
+green
+teal
+cyan
+azure
+blue
+violet
+magenta
+pink
+white
+black
+gray
