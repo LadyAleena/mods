@@ -14,25 +14,76 @@ This document describes Fancy::Open version 1.0.
 
   use Fancy::Open qw(fancy_open);
 
-  my @plain_array  = fancy_open($file_nane);
-    # returns an array for the file with no additions
+  my @plain_array   = fancy_open($file);
 
-  my @before_array = fancy_open($file_name, { 'before' => 'foo' });
-    # returns an array for the file with foo prepended to each item
+  my @before_array  = fancy_open($file, { 'before' => 'foo' });
 
-  my @after_array  = fancy_open($file_name, { 'after' => 'bar; });
-    # returns an array for the file with bar appended to each item
+  my @after_array   = fancy_open($file, { 'after' => 'bar; });
 
-  my @both_array   = fancy_open($file_name, { 'before' => 'foo', 'after' => 'bar' });
-    # returns an array for the file with foo prepended and bar appended to each item
+  my @both_array    = fancy_open($file, { 'before' => 'foo', 'after' => 'bar' });
+
+  my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
 
 =head1 DESCRIPTION
 
 C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<before>, C<after>, or both are used. There is the additional option to choose your C<encoding>, the default is C<uft-8>.
 
-  my @fancy_array = fancy_open($filename, { 'before' => $before_value, 'after' => $after_value });
+If the open fails, fancy_open will die with a message with the file and the captured error.
 
-If the open fails, fancy_open will die with a message with the filename and the captured error.
+  my @fancy_array = fancy_open($file, { 'before' => $before_value, 'after' => $after_value });
+
+=head2 Parameters
+
+C<fancy_open> has two parameters.
+
+=head3 file
+
+  my @plain_array  = fancy_open($file);
+
+The first parameter is the file to be opened. If this is the only parameter specified, the file will be opened, encoded to C<utf-8>, and returned as a list.
+
+=head3 Options
+
+The second parameter are the options: C<before>, C<after>, and C<encoding>.
+
+=head4 before
+
+  my @before_array = fancy_open($file, { 'before' => 'foo' });
+
+The C<before> option is the string you want prepended to each item in the list. Using the example, all items on the list will be returned with C<foo> prepended to them.
+
+  foofoo
+  foobar
+  foobaz
+  fooqux
+
+=head4 after
+
+  my @after_array  = fancy_open($file, { 'after' => 'bar; });
+
+The C<after> option is the string you want to appear appended to each item in the list. Using the example, all items on the list will be returned with C<bar> appended to them.
+
+  foobar
+  barbar
+  bazbar
+  quxbar
+
+=head4 before and after
+
+  my @both_array   = fancy_open($file, { 'before' => 'foo', 'after' => 'bar' });
+
+Using both the C<before> and C<after> options together will prepend and append the associated strings to the items in the list.
+
+  foofoobar
+  foobarbar
+  foobazbar
+  fooquxbar
+
+=head4 encoding
+
+  my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
+
+The C<encoding> option is the encoding you want to use to open the file. The above file will be opened C<ascii> encoded.
 
 =head1 DEPENDENCY
 
