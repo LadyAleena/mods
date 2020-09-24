@@ -26,11 +26,15 @@ This document describes Fancy::Open version 1.0.
 
 =head1 DESCRIPTION
 
-C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<before>, C<after>, or both are used. There is the additional option to choose your C<encoding>, the default is C<uft-8>.
+C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<before>, C<after>, or both are used. There is the additional option to choose your C<encoding>, the default is C<utf-8>.
 
 If the open fails, fancy_open will die with a message with the file and the captured error.
 
   my @fancy_array = fancy_open($file, { 'before' => $before_value, 'after' => $after_value });
+
+The file is also closed by C<fancy_open>.
+
+C<Fancy::Open> requires Perl version 5.10.0 or better.
 
 =head2 Parameters
 
