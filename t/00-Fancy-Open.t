@@ -1,14 +1,14 @@
 #!perl
+use v5.10.0;
 use strict;
 use warnings;
-use v5.10.0;
-use Test::More tests => "14";
+use Test::More;
 use File::Temp qw(tempfile);
 use Encode qw(encode);
 
 BEGIN {
   use_ok( 'Fancy::Open', qw(fancy_open) )
-    or die "Fancy::Open is not available\n";
+    or BAIL_OUT("Fancy::Open is not available\n");
 }
 
 diag( "Testing Fancy::Open $Fancy::Open::VERSION, Perl $], $^X" );
@@ -21,60 +21,60 @@ my $file_string      = join( "\n", @wanted_array );
 
 # Testing with file that ends with a newline
 
-my ($n_fh, $n_file) = tempfile();
-$n_fh->print("$file_string\n");
-$n_fh->close();
+my ($newline_fh, $newline_file) = tempfile();
+$newline_fh->print("$file_string\n");
+$newline_fh->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($n_file) ],
+  [ Fancy::Open::fancy_open($newline_file) ],
   [ @wanted_array ],
   "testing a plain array with file that ends with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($n_file, { 'before' => 'solid ' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'before' => 'solid ' }) ],
   [ @solid_array ],
   "testing an array with before option with file that ends with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($n_file, { 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'after' => ' bead' }) ],
   [ @bead_array ],
   "testing an array with after option with file that ends with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($n_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
   [ @solid_bead_array ],
   "testing an array with before and after options with file that ends with a newline"
 );
 
 # Testing with file that does not end with a newline
 
-my ($no_n_fh, $no_n_file) = tempfile();
-$no_n_fh->print($file_string);
-$no_n_fh->close();
+my ($no_newline_fh, $no_newline_file) = tempfile();
+$no_newline_fh->print($file_string);
+$no_newline_fh->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($no_n_file) ],
+  [ Fancy::Open::fancy_open($no_newline_file) ],
   [ @wanted_array ],
   "testing a plain array with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($no_n_file, { 'before' => 'solid ' }) ],
+  [ Fancy::Open::fancy_open($no_newline_file, { 'before' => 'solid ' }) ],
   [ @solid_array ],
   "testing an array with before option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($no_n_file, { 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($no_newline_file, { 'after' => ' bead' }) ],
   [ @bead_array ],
   "testing an array with after option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($no_n_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($no_newline_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
   [ @solid_bead_array ],
   "testing an array with before and after options with file that does not end with a newline"
 );
