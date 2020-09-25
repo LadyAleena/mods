@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::Event', qw(random_event) )
-    or die "Random::RPG::Event is not available\n";
+    or BAIL_OUT("Random::RPG::Event is not available\n");
 }
 
 diag( "Testing Random::RPG::Event $Random::RPG::Event::VERSION, Perl $], $^X" );

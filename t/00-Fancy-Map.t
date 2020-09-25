@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fancy::Map', qw(fancy_map) )
-    or die "Fancy::Map is not available\n";
+    or BAIL_OUT("Fancy::Map is not available\n");
 }
 
 diag( "Testing Fancy::Map $Fancy::Map::VERSION, Perl $], $^X" );

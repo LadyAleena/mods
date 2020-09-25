@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::Size', qw(random_size) )
-    or die "Random::Size is not available\n";
+    or BAIL_OUT("Random::Size is not available\n");
 }
 
 diag( "Testing Random::Size $Random::Size::VERSION, Perl $], $^X" );

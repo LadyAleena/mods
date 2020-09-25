@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::Color::Web', qw(random_web_color) )
-    or die "Random::Color::Web is not available\n";
+    or BAIL_OUT("Random::Color::Web is not available\n");
 }
 
 diag( "Testing Random::Color::Web $Random::Color::Web::VERSION, Perl $], $^X" );

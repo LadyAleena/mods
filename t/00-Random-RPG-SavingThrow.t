@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::SavingThrow', qw(random_saving_throw) )
-    or die "Random::RPG::SavingThrow is not available\n";
+    or BAIL_OUT("Random::RPG::SavingThrow is not available\n");
 }
 
 diag( "Testing Random::RPG::SavingThrow $Random::RPG::SavingThrow::VERSION, Perl $], $^X" );

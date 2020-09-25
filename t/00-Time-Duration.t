@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Time::Duration', qw(duration) )
-    or die "Time::Duration is not available\n";
+    or BAIL_OUT("Time::Duration is not available\n");
 }
 
 diag( "Testing Time::Duration $Time::Duration::VERSION, Perl $], $^X" );

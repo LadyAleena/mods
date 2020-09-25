@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance', qw(random_climate random_terrain random_subsistance climate_chart) )
-    or die "Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance is not available\n";
+    or BAIL_OUT("Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance is not available\n");
 }
 
 diag( "Testing Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance $Random::RPG::World::WorldBuildersGuidebook::ClimateTerrainSubsistance::VERSION, Perl $], $^X" );

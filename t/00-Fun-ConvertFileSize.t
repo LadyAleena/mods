@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fun::ConvertFileSize', qw(convert_filesize) )
-    or die "Fun::ConvertFileSize is not available\n";
+    or BAIL_OUT("Fun::ConvertFileSize is not available\n");
 }
 
 diag( "Testing Fun::ConvertFileSize $Fun::ConvertFileSize::VERSION, Perl $], $^X" );

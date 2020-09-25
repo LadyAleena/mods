@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::HighLevelCampaigns::ChronologicalRating', qw(random_chronological_rating) )
-    or die "Random::RPG::World::HighLevelCampaigns::ChronologicalRating is not available\n";
+    or BAIL_OUT("Random::RPG::World::HighLevelCampaigns::ChronologicalRating is not available\n");
 }
 
 diag( "Testing Random::RPG::World::HighLevelCampaigns::ChronologicalRating $Random::RPG::World::HighLevelCampaigns::ChronologicalRating::VERSION, Perl $], $^X" );

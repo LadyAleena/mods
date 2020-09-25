@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::Water', qw(random_water) )
-    or die "Random::Water is not available\n";
+    or BAIL_OUT("Random::Water is not available\n");
 }
 
 diag( "Testing Random::Water $Random::Water::VERSION, Perl $], $^X" );

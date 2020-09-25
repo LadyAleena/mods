@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fancy::Split', qw(fancy_split) )
-    or die "Fancy::Split is not available\n";
+    or BAIL_OUT("Fancy::Split is not available\n");
 }
 
 diag( "Testing Fancy::Split $Fancy::Split::VERSION, Perl $], $^X" );

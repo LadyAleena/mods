@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::WorldBuildersGuidebook::WorldHooks', qw(world_hook) )
-    or die "Random::RPG::World::WorldBuildersGuidebook::WorldHooks is not available\n";
+    or BAIL_OUT("Random::RPG::World::WorldBuildersGuidebook::WorldHooks is not available\n");
 }
 
 diag( "Testing Random::RPG::World::WorldBuildersGuidebook::WorldHooks $Random::RPG::World::WorldBuildersGuidebook::WorldHooks::VERSION, Perl $], $^X" );

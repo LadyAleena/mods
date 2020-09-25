@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fancy::Join::Grammatical', qw(grammatical_join) )
-    or die "Fancy::Join::Grammatical is not available\n";
+    or BAIL_OUT("Fancy::Join::Grammatical is not available\n");
 }
 
 diag( "Testing Fancy::Join::Grammatical $Fancy::Join::Grammatical::VERSION, Perl $], $^X" );

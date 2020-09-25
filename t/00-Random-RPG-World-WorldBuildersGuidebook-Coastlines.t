@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Coastlines', qw(random_coastlines) )
-    or die "Random::RPG::World::WorldBuildersGuidebook::Coastlines is not available\n";
+    or BAIL_OUT("Random::RPG::World::WorldBuildersGuidebook::Coastlines is not available\n");
 }
 
 diag( "Testing Random::RPG::World::WorldBuildersGuidebook::Coastlines $Random::RPG::World::WorldBuildersGuidebook::Coastlines::VERSION, Perl $], $^X" );

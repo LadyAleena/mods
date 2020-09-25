@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::MagicItem::Giant', qw(random_gauntlets random_girdle) )
-    or die "Random::RPG::MagicItem::Giant is not available\n";
+    or BAIL_OUT("Random::RPG::MagicItem::Giant is not available\n");
 }
 
 diag( "Testing Random::RPG::MagicItem::Giant $Random::RPG::MagicItem::Giant::VERSION, Perl $], $^X" );

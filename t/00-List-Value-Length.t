@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'List::Value::Length', qw(longest_value shortest_value longest_length shortest_length) )
-    or die "List::Value::Length is not available\n";
+    or BAIL_OUT("List::Value::Length is not available\n");
 }
 
 diag( "Testing List::Value::Length $List::Value::Length::VERSION, Perl $], $^X" );

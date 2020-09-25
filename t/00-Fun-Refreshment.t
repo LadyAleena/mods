@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fun::Refreshment', qw(refreshment) )
-    or die "Fun::Refreshment is not available\n";
+    or BAIL_OUT("Fun::Refreshment is not available\n");
 }
 
 diag( "Testing Fun::Refreshment $Fun::Refreshment::VERSION, Perl $], $^X" );

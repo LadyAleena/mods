@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::Range', qw(random_range_unit random_range random_radius) )
-    or die "Random::Range is not available\n";
+    or BAIL_OUT("Random::Range is not available\n");
 }
 
 diag( "Testing Random::Range $Random::Range::VERSION, Perl $], $^X" );

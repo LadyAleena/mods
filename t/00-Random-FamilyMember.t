@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::FamilyMember', qw(random_family_member) )
-    or die "Random::FamilyMember is not available\n";
+    or BAIL_OUT("Random::FamilyMember is not available\n");
 }
 
 diag( "Testing Random::FamilyMember $Random::FamilyMember::VERSION, Perl $], $^X" );

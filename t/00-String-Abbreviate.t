@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'String::Abbreviate', qw(abbr initials) )
-    or die "String::Abbreviate is not available\n";
+    or BAIL_OUT("String::Abbreviate is not available\n");
 }
 
 diag( "Testing String::Abbreviate $String::Abbreviate::VERSION, Perl $], $^X" );

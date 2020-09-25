@@ -6,7 +6,7 @@ use Test::More tests => 18;
 
 BEGIN {
   use_ok( 'Date::Month::Number', qw(month_number) )
-    or die "Date::Month::Number is not available\n";
+    or BAIL_OUT("Date::Month::Number is not available\n");
 }
 
 diag( "Testing Date::Month::Number $Date::Month::Number::VERSION, Perl $], $^X" );

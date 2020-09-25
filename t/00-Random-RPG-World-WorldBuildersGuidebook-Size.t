@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::WorldBuildersGuidebook::Size', qw(random_size) )
-    or die "Random::RPG::World::WorldBuildersGuidebook::Size is not available\n";
+    or BAIL_OUT("Random::RPG::World::WorldBuildersGuidebook::Size is not available\n");
 }
 
 diag( "Testing Random::RPG::World::WorldBuildersGuidebook::Size $Random::RPG::World::WorldBuildersGuidebook::Size::VERSION, Perl $], $^X" );

@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Name::Transform', qw(name_transform) )
-    or die "Name::Transform is not available\n";
+    or BAIL_OUT("Name::Transform is not available\n");
 }
 
 diag( "Testing Name::Transform $Name::Transform::VERSION, Perl $], $^X" );

@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Fancy::Sort::Short', qw(short_sort) )
-    or die "Fancy::Sort::Short is not available\n";
+    or BAIL_OUT("Fancy::Sort::Short is not available\n");
 }
 
 diag( "Testing Fancy::Sort::Short $Fancy::Sort::Short::VERSION, Perl $], $^X" );

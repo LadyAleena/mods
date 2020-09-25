@@ -6,7 +6,7 @@ use Test::More;
 
 BEGIN {
   use_ok( 'Random::RPG::World::WorldBuildersGuidebook::SettlementPattern', qw(random_settlement_pattern) )
-    or die "Random::RPG::World::WorldBuildersGuidebook::SettlementPattern is not available\n";
+    or BAIL_OUT("Random::RPG::World::WorldBuildersGuidebook::SettlementPattern is not available\n");
 }
 
 diag( "Testing Random::RPG::World::WorldBuildersGuidebook::SettlementPattern $Random::RPG::World::WorldBuildersGuidebook::SettlementPattern::VERSION, Perl $], $^X" );
