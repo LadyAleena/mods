@@ -1,7 +1,6 @@
 #!perl
 use strict;
 use warnings;
-use v5.8.8;
 use Test::More tests => 18;
 
 BEGIN {

@@ -1,7 +1,6 @@
 #!perl
 use strict;
 use warnings;
-use v5.16.0;
 use Test::More;
 
 BEGIN {
