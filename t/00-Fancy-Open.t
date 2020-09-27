@@ -18,6 +18,57 @@ my @bead_array       = map( "$_ bead", @wanted_array );
 my @solid_bead_array = map( "solid $_ bead", @wanted_array );
 my $file_string      = join( "\n", @wanted_array );
 
+# Testing encoding
+
+my ($fh, $fn) = tempfile();
+$fh->print($file_string);
+$fh->close();
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn) ],
+  [ map encode('utf8', $_), @wanted_array ],
+  "testing an array opened with no encoding"
+);
+
+my @encodings = qw(UTF-8 ascii cp1252 iso-8859-1);
+
+for my $encoding (@encodings) {
+
+  is_deeply(
+    [ Fancy::Open::fancy_open($fn, { 'encoding' => $encoding }) ],
+    [ map encode($encoding, $_), @wanted_array ],
+    "testing an array opened with $encoding encoding"
+  );
+
+}
+
+# Testing with file that does not end with a newline
+# Uses same file used to test encoding
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn) ],
+  [ @wanted_array ],
+  "testing a plain array with file that does not end with a newline"
+);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'before' => 'solid ' }) ],
+  [ @solid_array ],
+  "testing an array with before option with file that does not end with a newline"
+);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'after' => ' bead' }) ],
+  [ @bead_array ],
+  "testing an array with after option with file that does not end with a newline"
+);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'before' => 'solid ', 'after' => ' bead' }) ],
+  [ @solid_bead_array ],
+  "testing an array with before and after options with file that does not end with a newline"
+);
+
 # Testing with file that ends with a newline
 
 my ($newline_fh, $newline_file) = tempfile();
@@ -47,60 +98,6 @@ is_deeply(
   [ @solid_bead_array ],
   "testing an array with before and after options with file that ends with a newline"
 );
-
-# Testing with file that does not end with a newline
-
-my ($no_newline_fh, $no_newline_file) = tempfile();
-$no_newline_fh->print($file_string);
-$no_newline_fh->close();
-
-is_deeply(
-  [ Fancy::Open::fancy_open($no_newline_file) ],
-  [ @wanted_array ],
-  "testing a plain array with file that does not end with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($no_newline_file, { 'before' => 'solid ' }) ],
-  [ @solid_array ],
-  "testing an array with before option with file that does not end with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($no_newline_file, { 'after' => ' bead' }) ],
-  [ @bead_array ],
-  "testing an array with after option with file that does not end with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($no_newline_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
-  [ @solid_bead_array ],
-  "testing an array with before and after options with file that does not end with a newline"
-);
-
-# Testing encoding
-
-my ($fh, $fn) = tempfile();
-$fh->print($file_string);
-$fh->close();
-
-is_deeply(
-  [ Fancy::Open::fancy_open($fn) ],
-  [ map encode('utf8', $_), @wanted_array ],
-  "testing an array opened with no encoding"
-);
-
-my @encodings = qw(UTF-8 ascii cp1252 iso-8859-1);
-
-for my $encoding (@encodings) {
-
-  is_deeply(
-    [ Fancy::Open::fancy_open($fn, { 'encoding' => $encoding }) ],
-    [ map encode($encoding, $_), @wanted_array ],
-    "testing an array opened with $encoding encoding"
-  );
-
-}
 
 done_testing();
 
