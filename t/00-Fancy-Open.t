@@ -151,3 +151,4 @@ done_testing();
 
 # Written with the help of tobyink, davido, chromatic, and perlfan on PerlMonks.
 # https://www.perlmonks.org/?node_id=11121949
+# Writen with the help of rindolf in #perlcafe on Freenode
