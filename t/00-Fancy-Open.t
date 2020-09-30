@@ -52,21 +52,21 @@ is_deeply(
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'before' => 'solid ' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid ' }) ],
   [ @solid_array ],
-  "testing an array with before option with file that does not end with a newline"
+  "testing an array with prefix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'suffix' => ' bead' }) ],
   [ @bead_array ],
-  "testing an array with after option with file that does not end with a newline"
+  "testing an array with suffix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'before' => 'solid ', 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid ', 'suffix' => ' bead' }) ],
   [ @solid_bead_array ],
-  "testing an array with before and after options with file that does not end with a newline"
+  "testing an array with prefix and suffix options with file that does not end with a newline"
 );
 
 # Testing with file that ends with a newline
@@ -82,21 +82,21 @@ is_deeply(
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'before' => 'solid ' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'prefix' => 'solid ' }) ],
   [ @solid_array ],
-  "testing an array with before option with file that ends with a newline"
+  "testing an array with prefix option with file that ends with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'suffix' => ' bead' }) ],
   [ @bead_array ],
-  "testing an array with after option with file that ends with a newline"
+  "testing an array with suffix option with file that ends with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'before' => 'solid ', 'after' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($newline_file, { 'prefix' => 'solid ', 'suffix' => ' bead' }) ],
   [ @solid_bead_array ],
-  "testing an array with before and after options with file that ends with a newline"
+  "testing an array with prefix and suffix options with file that ends with a newline"
 );
 
 done_testing();

@@ -4,7 +4,7 @@
 
 =head1 NAME
 
-B<Fancy::Open> opens and creates an array for a file.
+B<Fancy::Open> opens a file and creates an array with an optional prefix, suffix, or both in your preferred encoding.
 
 =head1 VERSION
 
@@ -16,21 +16,21 @@ This document describes Fancy::Open version 1.0.
 
   my @plain_array   = fancy_open($file);
 
-  my @before_array  = fancy_open($file, { 'before' => 'foo' });
+  my @prefix_array  = fancy_open($file, { 'prefix' => 'foo' });
 
-  my @after_array   = fancy_open($file, { 'after' => 'bar; });
+  my @suffix_array  = fancy_open($file, { 'suffix' => 'bar; });
 
-  my @both_array    = fancy_open($file, { 'before' => 'foo', 'after' => 'bar' });
+  my @both_array    = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
 
   my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
 
 =head1 DESCRIPTION
 
-C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<before>, C<after>, or both are used. There is the additional option to choose your C<encoding>, the default is C<utf-8>.
+C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<prefix>, C<suffix>, or both are used. There is the additional option to choose your C<encoding>, the default is C<utf-8>.
 
-If the open fails, fancy_open will die with a message with the file and the captured error.
+If the open fails, fancy_open will die.
 
-  my @fancy_array = fancy_open($file, { 'before' => $before_value, 'after' => $after_value });
+  my @fancy_array = fancy_open($file, { 'prefix' => $prefix_value, 'suffix' => $suffix_value });
 
 The file is also closed by C<fancy_open>.
 
@@ -48,35 +48,35 @@ The first parameter is the file to be opened. If this is the only parameter spec
 
 =head3 Options
 
-The second parameter are the options: C<before>, C<after>, and C<encoding>.
+The second parameter are the options: C<prefix>, C<suffix>, and C<encoding>.
 
-=head4 before
+=head4 prefix
 
-  my @before_array = fancy_open($file, { 'before' => 'foo' });
+  my @prefix_array = fancy_open($file, { 'prefix' => 'foo' });
 
-The C<before> option is the string you want prepended to each item in the list. Using the example, all items on the list will be returned with C<foo> prepended to them.
+The C<prefix> option is the string you want prepended to each item in the list. Using the example, all items on the list will be returned with C<foo> prepended to them.
 
   foofoo
   foobar
   foobaz
   fooqux
 
-=head4 after
+=head4 suffix
 
-  my @after_array  = fancy_open($file, { 'after' => 'bar; });
+  my @suffix_array  = fancy_open($file, { 'suffix' => 'bar; });
 
-The C<after> option is the string you want to appear appended to each item in the list. Using the example, all items on the list will be returned with C<bar> appended to them.
+The C<suffix> option is the string you want to appear appended to each item in the list. Using the example, all items on the list will be returned with C<bar> appended to them.
 
   foobar
   barbar
   bazbar
   quxbar
 
-=head4 before and after
+=head4 prefix and suffix
 
-  my @both_array   = fancy_open($file, { 'before' => 'foo', 'after' => 'bar' });
+  my @both_array   = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
 
-Using both the C<before> and C<after> options together will prepend and append the associated strings to the items in the list.
+Using both the C<prefix> and C<suffix> options together will prepend and append the associated strings to the items in the list.
 
   foofoobar
   foobarbar
