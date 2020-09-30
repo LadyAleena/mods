@@ -98,18 +98,45 @@ is_deeply(
 
 # Testing with file that has a blank line in it
 
-my @blank_array = @wanted_array;
-splice( @blank_array, 8, 0, '' );
-my $file_with_blank_string = join( "\n", @blank_array);
+my @empty_line_array = @wanted_array;
+splice( @empty_line_array, 8, 0, '' );
+my $file_with_empty_line_string = join( "\n", @empty_line_array);
 
-my ($fh_with_blank, $file_with_blank) = tempfile();
-$fh_with_blank->print($file_with_blank_string);
-$fh_with_blank->close();
+my ($fh_with_empty_line, $file_with_empty_line) = tempfile();
+$fh_with_empty_line->print($file_with_empty_line_string);
+$fh_with_empty_line->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($file_with_blank) ],
-  [ @blank_array ],
-  "testing a plain array with file that does not end with a newline"
+  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
+  [ @solid_bead_array ],
+  "testing a plain array with file with an empty line that does not end with a newline with no empty option"
+);
+
+my @empty_line_array_filled = map( "solid${_}bead", @empty_line_array );
+splice( @empty_line_array_filled, 8, 1, "solidbead");
+
+is_deeply(
+  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'fill' }) ],
+  [ @empty_line_array_filled ],
+  "testing a plain array with file with an empty line that does not end with a newline with 'fill' empty option"
+);
+
+my @empty_line_array_empty = map( "solid${_}bead", @empty_line_array );
+splice(@empty_line_array_empty, 8, 1, '');
+
+is_deeply(
+  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'blank' }) ],
+  [ @empty_line_array_empty ],
+  "testing a plain array with file with an empty line that does not end with a newline with 'blank' empty option"
+);
+
+my @empty_line_array_undef = map( "solid${_}bead", @empty_line_array );
+splice(@empty_line_array_undef, 8, 1, undef);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'undefined' }) ],
+  [ @empty_line_array_undef ],
+  "testing a plain array with file with an empty line that does not end with a newline with 'undefined' empty option"
 );
 
 # Testing with file that ends with a newline
