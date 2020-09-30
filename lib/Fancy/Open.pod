@@ -22,7 +22,11 @@ This document describes Fancy::Open version 1.0.
 
   my @both_array    = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
 
+  my @joiner_array  = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar', 'joiner' => ' ' });
+
   my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
+
+  my @empty_line    = fancy_open($file, { 'empty' => 'fill' });
 
 =head1 DESCRIPTION
 
@@ -34,60 +38,255 @@ If the open fails, fancy_open will die.
 
 The file is also closed by C<fancy_open>.
 
-C<Fancy::Open> requires Perl version 5.10.0 or better.
+C<Fancy::Open> requires Perl version 5.6 or better.
 
 =head2 Parameters
 
 C<fancy_open> has two parameters.
 
+B<Note:> all sample returned arrays are the results from L<Data::Dump>.
+
+Sample file contents.
+
+  red
+  orange
+  yellow
+  spring
+  green
+  teal
+  cyan
+  azure
+  blue
+  violet
+  magenta
+  pink
+  white
+  black
+  gray
+
 =head3 file
 
-  my @plain_array  = fancy_open($file);
+  my @plain_array = fancy_open($file);
 
 The first parameter is the file to be opened. If this is the only parameter specified, the file will be opened, encoded to C<utf-8>, and returned as a list.
 
 =head3 Options
 
-The second parameter are the options: C<prefix>, C<suffix>, and C<encoding>.
+The second parameter are the options: C<prefix>, C<suffix>, C<joiner>, C<empty>, and C<encoding>.
 
 =head4 prefix
 
-  my @prefix_array = fancy_open($file, { 'prefix' => 'foo' });
+  my @prefix_array = fancy_open($file, { 'prefix' => 'solid' });
 
 The C<prefix> option is the string you want prepended to each item in the list. Using the example, all items on the list will be returned with C<foo> prepended to them.
 
-  foofoo
-  foobar
-  foobaz
-  fooqux
+  (
+    "solidred",
+    "solidorange",
+    "solidyellow",
+    "solidspring",
+    "solidgreen",
+    "solidteal",
+    "solidcyan",
+    "solidazure",
+    "solidblue",
+    "solidviolet",
+    "solidmagenta",
+    "solidpink",
+    "solidwhite",
+    "solidblack",
+    "solidgray",
+  )
 
 =head4 suffix
 
-  my @suffix_array  = fancy_open($file, { 'suffix' => 'bar; });
+  my @suffix_array = fancy_open($file, { 'suffix' => 'bead; });
 
 The C<suffix> option is the string you want to appear appended to each item in the list. Using the example, all items on the list will be returned with C<bar> appended to them.
 
-  foobar
-  barbar
-  bazbar
-  quxbar
+  (
+    "redbead",
+    "orangebead",
+    "yellowbead",
+    "springbead",
+    "greenbead",
+    "tealbead",
+    "cyanbead",
+    "azurebead",
+    "bluebead",
+    "violetbead",
+    "magentabead",
+    "pinkbead",
+    "whitebead",
+    "blackbead",
+    "graybead",
+  )
 
 =head4 prefix and suffix
 
-  my @both_array   = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
+  my @both_array = fancy_open($file, { 'prefix' => 'solid', 'suffix' => 'bead' });
 
 Using both the C<prefix> and C<suffix> options together will prepend and append the associated strings to the items in the list.
 
-  foofoobar
-  foobarbar
-  foobazbar
-  fooquxbar
+  (
+    "solidredbead",
+    "solidorangebead",
+    "solidyellowbead",
+    "solidspringbead",
+    "solidgreenbead",
+    "solidtealbead",
+    "solidcyanbead",
+    "solidazurebead",
+    "solidbluebead",
+    "solidvioletbead",
+    "solidmagentabead",
+    "solidpinkbead",
+    "solidwhitebead",
+    "solidblackbead",
+    "solidgraybead",
+  )
+
+=head4 joiner
+
+  my @joiner_array = fancy_open($file, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' });
+
+The C<joiner> option will add a string between the prefix, the line from the file, and the suffix. In this case, a single space.
+
+  (
+    "solid red bead",
+    "solid orange bead",
+    "solid yellow bead",
+    "solid spring bead",
+    "solid green bead",
+    "solid teal bead",
+    "solid cyan bead",
+    "solid azure bead",
+    "solid blue bead",
+    "solid violet bead",
+    "solid magenta bead",
+    "solid pink bead",
+    "solid white bead",
+    "solid black bead",
+    "solid gray bead",
+  )
 
 =head4 encoding
 
   my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
 
 The C<encoding> option is the encoding you want to use to open the file. The above file will be opened C<ascii> encoded.
+
+=head4 empty
+
+  my @empty_line = fancy_open($file, { 'empty' => 'fill' });
+
+The C<empty> option has three possible values: C<fill>, C<blank>, or C<undefined>.
+
+Sample file contents with an empty line.
+
+  red
+  orange
+  yellow
+  spring
+  green
+  teal
+  cyan
+  azure
+
+  blue
+  violet
+  magenta
+  pink
+  white
+  black
+  gray
+
+
+=over
+
+=item *
+
+C<fill> will prefix and suffix the value as it does with all other lines.
+
+  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'fill' });
+
+The array returned will be:
+
+  (
+    "solidred",
+    "solidorange",
+    "solidyellow",
+    "solidspring",
+    "solidgreen",
+    "solidteal",
+    "solidcyan",
+    "solidazure",
+    "solid",
+    "solidblue",
+    "solidviolet",
+    "solidmagenta",
+    "solidpink",
+    "solidwhite",
+    "solidblack",
+    "solidgray",
+  )
+
+
+=item *
+
+C<blank> will return a zero length but defined value.
+
+  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'blank' });
+
+The array returned will be:
+
+  (
+    "solidred",
+    "solidorange",
+    "solidyellow",
+    "solidspring",
+    "solidgreen",
+    "solidteal",
+    "solidcyan",
+    "solidazure",
+    "",
+    "solidblue",
+    "solidviolet",
+    "solidmagenta",
+    "solidpink",
+    "solidwhite",
+    "solidblack",
+    "solidgray",
+  )
+
+=item *
+
+C<undefined> will return an undefined value.
+
+  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'undefined' });
+
+The array returned will be:
+
+  (
+    "solidred",
+    "solidorange",
+    "solidyellow",
+    "solidspring",
+    "solidgreen",
+    "solidteal",
+    "solidcyan",
+    "solidazure",
+    undef,
+    "solidblue",
+    "solidviolet",
+    "solidmagenta",
+    "solidpink",
+    "solidwhite",
+    "solidblack",
+    "solidgray",
+  )
+
+=back
 
 =head1 DEPENDENCY
 

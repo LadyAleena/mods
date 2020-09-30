@@ -1,5 +1,5 @@
 package Fancy::Open;
-use v5.10.0;
+use 5.006;
 use strict;
 use warnings;
 use Exporter qw(import);
@@ -9,11 +9,13 @@ our @EXPORT_OK = qw(fancy_open);
 
 sub fancy_open {
   my ($filename, $opt) = @_;
-  my $encoding = $opt->{'encoding'} // 'utf-8';
-  open(my $fh, "<:encoding($encoding)", $filename) or die "Can't open $filename. $!";
 
-  my $prefix = $opt->{'prefix'} // '';
-  my $suffix = $opt->{'suffix'} // '';
+  my $joiner = $opt->{'joiner'} ? $opt->{'joiner'} : '';
+  my $prefix = $opt->{'prefix'} ? $opt->{'prefix'} . $joiner : '';
+  my $suffix = $opt->{'suffix'} ? $joiner . $opt->{'suffix'} : '';
+
+  my $encoding = $opt->{'encoding'} ? $opt->{'encoding'} : 'utf-8';
+  open(my $fh, "<:encoding($encoding)", $filename) or die "Can't open $filename. $!";
 
   my @array;
   while ( my $line = <$fh> ) {

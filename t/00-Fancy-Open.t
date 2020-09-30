@@ -12,11 +12,16 @@ BEGIN {
 
 diag( "Testing Fancy::Open $Fancy::Open::VERSION, Perl $], $^X" );
 
-my @wanted_array     = qw(red orange yellow spring green teal cyan azure blue violet magenta pink white black gray);
-my @solid_array      = map( "solid $_", @wanted_array );
-my @bead_array       = map( "$_ bead", @wanted_array );
-my @solid_bead_array = map( "solid $_ bead", @wanted_array );
-my $file_string      = join( "\n", @wanted_array );
+my @wanted_array = qw(red orange yellow spring green teal cyan azure blue violet magenta pink white black gray);
+
+my @solid_array             = map( "solid$_",       @wanted_array );
+my @bead_array              = map( "${_}bead",      @wanted_array );
+my @solid_bead_array        = map( "solid${_}bead", @wanted_array );
+my @solid_array_joiner      = map( "solid $_",      @wanted_array );
+my @bead_array_joiner       = map( "$_ bead",       @wanted_array );
+my @solid_bead_array_joiner = map( "solid $_ bead", @wanted_array );
+
+my $file_string = join( "\n", @wanted_array );
 
 # Testing encoding
 
@@ -27,7 +32,7 @@ $fh->close();
 is_deeply(
   [ Fancy::Open::fancy_open($fn) ],
   [ map encode('utf8', $_), @wanted_array ],
-  "testing an array opened with no encoding"
+  "testing an array opened with no options"
 );
 
 my @encodings = qw(UTF-8 ascii cp1252 iso-8859-1);
@@ -51,22 +56,60 @@ is_deeply(
   "testing a plain array with file that does not end with a newline"
 );
 
+# Testing prefix and suffix options
+
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid ' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid' }) ],
   [ @solid_array ],
   "testing an array with prefix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'suffix' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'suffix' => 'bead' }) ],
   [ @bead_array ],
   "testing an array with suffix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid ', 'suffix' => ' bead' }) ],
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
   [ @solid_bead_array ],
   "testing an array with prefix and suffix options with file that does not end with a newline"
+);
+
+# Testing joiner option
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'joiner' => ' ' }) ],
+  [ @solid_array_joiner ],
+  "testing an array with prefix and joiner options with file that does not end with a newline"
+);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'suffix' => 'bead', 'joiner' => ' ' }) ],
+  [ @bead_array_joiner ],
+  "testing an array with suffix and joiner options with file that does not end with a newline"
+);
+
+is_deeply(
+  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' }) ],
+  [ @solid_bead_array_joiner ],
+  "testing an array with prefix, suffix, and joiner options with file that does not end with a newline"
+);
+
+# Testing with file that has a blank line in it
+
+my @blank_array = @wanted_array;
+splice( @blank_array, 8, 0, '' );
+my $file_with_blank_string = join( "\n", @blank_array);
+
+my ($fh_with_blank, $file_with_blank) = tempfile();
+$fh_with_blank->print($file_with_blank_string);
+$fh_with_blank->close();
+
+is_deeply(
+  [ Fancy::Open::fancy_open($file_with_blank) ],
+  [ @blank_array ],
+  "testing a plain array with file that does not end with a newline"
 );
 
 # Testing with file that ends with a newline
@@ -78,25 +121,7 @@ $newline_fh->close();
 is_deeply(
   [ Fancy::Open::fancy_open($newline_file) ],
   [ @wanted_array ],
-  "testing a plain array with file that ends with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'prefix' => 'solid ' }) ],
-  [ @solid_array ],
-  "testing an array with prefix option with file that ends with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'suffix' => ' bead' }) ],
-  [ @bead_array ],
-  "testing an array with suffix option with file that ends with a newline"
-);
-
-is_deeply(
-  [ Fancy::Open::fancy_open($newline_file, { 'prefix' => 'solid ', 'suffix' => ' bead' }) ],
-  [ @solid_bead_array ],
-  "testing an array with prefix and suffix options with file that ends with a newline"
+  "testing an array opened with no options with file that ends with a newline"
 );
 
 done_testing();
