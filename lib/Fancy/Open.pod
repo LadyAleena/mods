@@ -72,7 +72,7 @@ The first parameter is the file to be opened. If this is the only parameter spec
 
 =head3 Options
 
-The second parameter are the options: C<prefix>, C<suffix>, C<joiner>, C<empty>, and C<encoding>.
+The second parameter are the options: C<prefix>, C<suffix>, C<joiner>, C<encoding>, and C<empty>.
 
 =head4 prefix
 
@@ -180,7 +180,7 @@ The C<encoding> option is the encoding you want to use to open the file. The abo
 
   my @empty_line = fancy_open($file, { 'empty' => 'fill' });
 
-The C<empty> option has three possible values: C<fill>, C<blank>, or C<undefined>.
+The C<empty> option has three possible values: C<fill>, C<blank>, or C<undefined>. If C<empty> is not used or is any value than the three listed, the empty line will be ignored.
 
 Sample file contents with an empty line.
 
