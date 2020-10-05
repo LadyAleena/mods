@@ -34,7 +34,16 @@ C<fancy_open> can be exported and returns a list of values. These values can be 
 
 If the open fails, fancy_open will die.
 
-  my @fancy_array = fancy_open($file, { 'prefix' => $prefix_value, 'suffix' => $suffix_value });
+  my @fancy_array = fancy_open(
+    $file,
+    {
+      'prefix' => $prefix_string,
+      'suffix' => $suffix_string,
+      'joiner' => $joiner_string,
+      'empty'  => $empty_option,
+      'encoding' => $encoding_option
+    }
+  );
 
 The file is also closed by C<fancy_open>.
 
@@ -180,7 +189,7 @@ The C<encoding> option is the encoding you want to use to open the file. The abo
 
   my @empty_line = fancy_open($file, { 'empty' => 'fill' });
 
-The C<empty> option has three possible values: C<fill>, C<blank>, or C<undefined>. If C<empty> is not used or is any value than the three listed, the empty line will be ignored.
+The C<empty> option has three possible values for what to do with empty lines in the file: C<fill>, C<blank>, or C<undefined>. If C<empty> is not used or is any value than the three listed, the empty line will be ignored.
 
 Sample file contents with an empty line.
 
