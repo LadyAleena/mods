@@ -23,7 +23,7 @@ While I say these are groups, they are mostly independent of each other with the
 - [List::Value::Length](lib/List/Value/Length.pm): The Length module was written for some reason, which I can not remember.
 - [Name::Transform](lib/Name/Transform.pm): The Transform module parses names into an arrayref.
 - [String::Abbreviate](lib/String/Abbreviate.pm): The Abbreviate module was written for fun.
-- [Time::Duration](lib/Time/Duration.pm): The Duration module was written so I could calculate the total duration from smaller time values.
+- [Time::Duration](lib/Time/Duration.pm): The Duration module was written so I could calculate the total duration from smaller time values. *This module needs to be renamed. One already exists on CPAN with [the same name](https://metacpan.org/pod/Time::Duration).*
 
 ## Tests
 
