@@ -1,13 +1,13 @@
-package Time::Duration;
+package Time::Duration::AddTimes;
 use v5.10.0;
 use strict;
 use warnings;
 use Exporter qw(import);
 
 our $VERSION   = '1.0';
-our @EXPORT_OK = qw(duration);
+our @EXPORT_OK = qw(total_duration);
 
-sub duration {
+sub total_duration {
   my ($time_list) = @_;
   my $total_seconds;
   for my $duration (@{$time_list}) {
@@ -48,24 +48,24 @@ sub duration {
 
 =head1 NAME
 
-B<Time::Duration> returns total time from a list of smaller durations.
+B<Time::Duration::AddTimes> returns total time from a list of smaller durations.
 
 =head1 VERSION
 
-This document describes Time::Duration version 1.0.
+This document describes Time::Duration::AddTimes version 1.0.
 
 =head1 SYNOPSIS
 
-  use Time::Duration qw(duration);
+  use Time::Duration::AddTimes qw(total_duration);
 
   my @times = qw(3:58 2:48 4:28 5:06 6:50 5:33 4:05 3:29 4:48 6:19);
 
-  my $total_time = duration(\@times);
+  my $total_time = total_duration(\@times);
     # returns 47:24
 
 =head1 DEPENDENCIES
 
-Time::Duration depends on L<Exporter>.
+Time::Duration::AddTimes depends on L<Exporter>.
 
 =head1 AUTHOR
 
