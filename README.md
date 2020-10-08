@@ -22,10 +22,10 @@ While I say these are groups, the modules in them are mostly independent of each
 
 ### Individual modules
 
-- [List::Value::Length](lib/List/Value/Length.pm): The Length module was written for some reason, which I can not remember. *I have offered this code to List::SomeUtils, but they were not interested.*
-- [Name::Transform](lib/Name/Transform.pm): The Transform module parses names into an arrayref.
-- [String::Abbreviate](lib/String/Abbreviate.pm): The Abbreviate module was written for fun.
-- [Time::Duration](lib/Time/Duration.pm): The Duration module was written so I could calculate the total duration from smaller time values. *This module needs to be renamed. One already exists on CPAN with [the same name](https://metacpan.org/pod/Time::Duration).*
+- [List::Value::Length](lib/List/Value/Length.pm): The List::Value::Length module was written for some reason, which I can not remember. *I have offered this code to List::SomeUtils.*
+- [Name::Transform](lib/Name/Transform.pm): The Name::Transform module parses names into an arrayref.
+- [String::Abbreviate](lib/String/Abbreviate.pm): The String::Abbreviate module was written for fun.
+- [Time::Duration::AddTimes](lib/Time/Duration/AddTimes.pm): The Time::Duration::AddTimes module was written so I could calculate the total duration from smaller time values. *This module needs to be renamed. One already exists on CPAN with [the same name](https://metacpan.org/pod/Time::Duration). I am offering it to the currently existing module.*
 
 ## Tests
 
