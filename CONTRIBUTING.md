@@ -17,4 +17,4 @@ I will not tolerate any suggestion that is along the lines of "Use <something>."
 
 ## Note
 
-When I figure out how to package modules and when modules are packaged, they will be removed from this repository into their new packages. Each modules in this repository will, at some point, have its own package and repository.
+When I figure out how to package modules and when modules are packaged, they will be removed from this repository into their new packages. Each module in this repository will, at some point, have its own package and repository.
