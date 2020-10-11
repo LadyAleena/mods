@@ -14,20 +14,22 @@ sub fancy_open {
   my $prefix = $opt->{'prefix'} ? $opt->{'prefix'} . $joiner : '';
   my $suffix = $opt->{'suffix'} ? $joiner . $opt->{'suffix'} : '';
 
-  my $encoding = $opt->{'encoding'} ? $opt->{'encoding'} : 'utf-8';
+  my $empty = $opt->{empty} || '';
+
+  my $encoding = $opt->{'encoding'} || 'utf-8';
   open(my $fh, "<:encoding($encoding)", $filename) or die "Can't open $filename. $!";
 
   my @array;
   while ( my $line = <$fh> ) {
     chomp $line;
     my $final_line;
-    if ( length($line) > 0 || $opt->{'empty'} && $opt->{'empty'} eq 'fill' ) {
+    if ( length($line) > 0 || $empty eq 'fill' ) {
       $final_line = $prefix . $line . $suffix;
     }
-    elsif ( $opt->{'empty'} && $opt->{'empty'} eq 'blank' ) {
+    elsif ( $empty eq 'blank' ) {
       $final_line = '';
     }
-    elsif ( $opt->{'empty'} && $opt->{'empty'} eq 'undefined' ) {
+    elsif ( $empty eq 'undefined' ) {
       $final_line = undef;
     }
     else {
