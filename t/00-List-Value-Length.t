@@ -4,7 +4,7 @@ use warnings;
 use Test::More;
 
 BEGIN {
-  use_ok( 'List::Value::Length', qw(longest_value shortest_value longest_length shortest_length) )
+  use_ok( 'List::Value::Length', qw(longest_length shortest_length longest_value shortest_value longest_values shortest_values) )
     or BAIL_OUT("List::Value::Length is not available\n");
 }
 
@@ -26,13 +26,25 @@ is(
 );
 
 is_deeply(
-  List::Value::Length::longest_value(@colors),
+  [ List::Value::Length::longest_value(@colors) ],
   [ 'magenta' ],
   "testing longest_value is magenta only"
 );
 
 is_deeply(
-  List::Value::Length::shortest_value(@colors),
+  [ List::Value::Length::shortest_value(@colors) ],
+  [ 'red' ],
+  "testing shortest_value is red only"
+);
+
+is_deeply(
+  [ List::Value::Length::longest_values(@colors) ],
+  [ 'magenta' ],
+  "testing longest_value is magenta only"
+);
+
+is_deeply(
+  [ List::Value::Length::shortest_values(@colors) ],
   [ 'red' ],
   "testing shortest_value is red only"
 );
