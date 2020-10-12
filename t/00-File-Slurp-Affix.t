@@ -6,11 +6,11 @@ use File::Temp qw(tempfile);
 use Encode qw(encode);
 
 BEGIN {
-  use_ok( 'Fancy::Open', qw(fancy_open) )
-    or BAIL_OUT("Fancy::Open is not available\n");
+  use_ok( 'File::Slurp::Affix', qw(slurp_affix) )
+    or BAIL_OUT("File::Slurp::Affix is not available\n");
 }
 
-diag( "Testing Fancy::Open $Fancy::Open::VERSION, Perl $], $^X" );
+diag( "Testing File::Slurp::Affix $File::Slurp::Affix::VERSION, Perl $], $^X" );
 
 my @wanted_array = qw(red orange yellow spring green teal cyan azure blue violet magenta pink white black gray);
 
@@ -30,7 +30,7 @@ $fh->print($file_string);
 $fh->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn) ],
+  [ File::Slurp::Affix::slurp_affix($fn) ],
   [ map encode('utf8', $_), @wanted_array ],
   "testing an array opened with no options"
 );
@@ -40,7 +40,7 @@ my @encodings = qw(UTF-8 ascii cp1252 iso-8859-1);
 for my $encoding (@encodings) {
 
   is_deeply(
-    [ Fancy::Open::fancy_open($fn, { 'encoding' => $encoding }) ],
+    [ File::Slurp::Affix::slurp_affix($fn, { 'encoding' => $encoding }) ],
     [ map encode($encoding, $_), @wanted_array ],
     "testing an array opened with $encoding encoding"
   );
@@ -51,7 +51,7 @@ for my $encoding (@encodings) {
 # Uses same file used to test encoding
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn) ],
+  [ File::Slurp::Affix::slurp_affix($fn) ],
   [ @wanted_array ],
   "testing a plain array with file that does not end with a newline"
 );
@@ -59,19 +59,19 @@ is_deeply(
 # Testing prefix and suffix options
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'prefix' => 'solid' }) ],
   [ @solid_array ],
   "testing an array with prefix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'suffix' => 'bead' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'suffix' => 'bead' }) ],
   [ @bead_array ],
   "testing an array with suffix option with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
   [ @solid_bead_array ],
   "testing an array with prefix and suffix options with file that does not end with a newline"
 );
@@ -79,19 +79,19 @@ is_deeply(
 # Testing joiner option
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'joiner' => ' ' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'prefix' => 'solid', 'joiner' => ' ' }) ],
   [ @solid_array_joiner ],
   "testing an array with prefix and joiner options with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'suffix' => 'bead', 'joiner' => ' ' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'suffix' => 'bead', 'joiner' => ' ' }) ],
   [ @bead_array_joiner ],
   "testing an array with suffix and joiner options with file that does not end with a newline"
 );
 
 is_deeply(
-  [ Fancy::Open::fancy_open($fn, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' }) ],
+  [ File::Slurp::Affix::slurp_affix($fn, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' }) ],
   [ @solid_bead_array_joiner ],
   "testing an array with prefix, suffix, and joiner options with file that does not end with a newline"
 );
@@ -109,28 +109,28 @@ $fh_with_empty_line->print($file_with_empty_line_string);
 $fh_with_empty_line->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
+  [ File::Slurp::Affix::slurp_affix($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead' }) ],
   [ @solid_bead_array ],
   "testing a plain array with file with an empty line that does not end with a newline with no empty option"
 );
 
 $solid_bead_empty_line_array[8] = "solidbead";
 is_deeply(
-  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'fill' }) ],
+  [ File::Slurp::Affix::slurp_affix($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'fill' }) ],
   [ @solid_bead_empty_line_array ],
   "testing a plain array with file with an empty line that does not end with a newline with 'fill' empty option"
 );
 
 $solid_bead_empty_line_array[8] = '';
 is_deeply(
-  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'blank' }) ],
+  [ File::Slurp::Affix::slurp_affix($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'blank' }) ],
   [ @solid_bead_empty_line_array ],
   "testing a plain array with file with an empty line that does not end with a newline with 'blank' empty option"
 );
 
 $solid_bead_empty_line_array[8] = undef;
 is_deeply(
-  [ Fancy::Open::fancy_open($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'undefined' }) ],
+  [ File::Slurp::Affix::slurp_affix($file_with_empty_line, { 'prefix' => 'solid', 'suffix' => 'bead', 'empty' => 'undefined' }) ],
   [ @solid_bead_empty_line_array ],
   "testing a plain array with file with an empty line that does not end with a newline with 'undefined' empty option"
 );
@@ -142,7 +142,7 @@ $newline_fh->print("$file_string\n");
 $newline_fh->close();
 
 is_deeply(
-  [ Fancy::Open::fancy_open($newline_file) ],
+  [ File::Slurp::Affix::slurp_affix($newline_file) ],
   [ @wanted_array ],
   "testing an array opened with no options with file that ends with a newline"
 );

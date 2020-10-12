@@ -1,13 +1,13 @@
-package Fancy::Open;
+package File::Slurp::Affix;
 use 5.006;
 use strict;
 use warnings;
 use Exporter qw(import);
 
 our $VERSION   = '1.0';
-our @EXPORT_OK = qw(fancy_open);
+our @EXPORT_OK = qw(slurp_affix);
 
-sub fancy_open {
+sub slurp_affix {
   my ($filename, $opt) = @_;
 
   my $joiner = $opt->{'joiner'} ? $opt->{'joiner'} : '';

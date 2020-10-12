@@ -4,37 +4,37 @@
 
 =head1 NAME
 
-B<Fancy::Open> opens a file and creates an array with an optional prefix, suffix, or both in your preferred encoding.
+B<File::Slurp::Affix> opens a file and creates an array with an optional prefix, suffix, or both in your preferred encoding.
 
 =head1 VERSION
 
-This document describes Fancy::Open version 1.0.
+This document describes File::Slurp::Affix version 1.0.
 
 =head1 SYNOPSIS
 
-  use Fancy::Open qw(fancy_open);
+  use File::Slurp::Affix qw(slurp_affix);
 
-  my @plain_array   = fancy_open($file);
+  my @plain_array   = slurp_affix($file);
 
-  my @prefix_array  = fancy_open($file, { 'prefix' => 'foo' });
+  my @prefix_array  = slurp_affix($file, { 'prefix' => 'foo' });
 
-  my @suffix_array  = fancy_open($file, { 'suffix' => 'bar; });
+  my @suffix_array  = slurp_affix($file, { 'suffix' => 'bar; });
 
-  my @both_array    = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
+  my @both_array    = slurp_affix($file, { 'prefix' => 'foo', 'suffix' => 'bar' });
 
-  my @joiner_array  = fancy_open($file, { 'prefix' => 'foo', 'suffix' => 'bar', 'joiner' => ' ' });
+  my @joiner_array  = slurp_affix($file, { 'prefix' => 'foo', 'suffix' => 'bar', 'joiner' => ' ' });
 
-  my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
+  my @encoded_array = slurp_affix($file, { 'encoding' => 'ascii' });
 
-  my @empty_line    = fancy_open($file, { 'empty' => 'fill' });
+  my @empty_line    = slurp_affix($file, { 'empty' => 'fill' });
 
 =head1 DESCRIPTION
 
-C<fancy_open> can be exported and returns a list of values. These values can be modified if the optional parameters C<prefix>, C<suffix>, or both are used. There is the additional option to choose your C<encoding>, the default is C<utf-8>.
+C<slurp_affix> can be exported and returns a list of values. These values can be modified if the optional parameters C<prefix>, C<suffix>, or both are used. There is the additional option to choose your C<encoding>, the default is C<utf-8>.
 
-If the open fails, fancy_open will die.
+If the open fails, slurp_affix will die.
 
-  my @fancy_array = fancy_open(
+  my @fancy_array = slurp_affix(
     $file,
     {
       'prefix' => $prefix_string,
@@ -45,13 +45,13 @@ If the open fails, fancy_open will die.
     }
   );
 
-The file is also closed by C<fancy_open>.
+The file is also closed by C<slurp_affix>.
 
-C<Fancy::Open> requires Perl version 5.6 or better.
+C<File::Slurp::Affix> requires Perl version 5.6 or better.
 
 =head2 Parameters
 
-C<fancy_open> has two parameters.
+C<slurp_affix> has two parameters.
 
 B<Note:> all sample returned arrays are the results from L<Data::Dump>.
 
@@ -75,7 +75,7 @@ Sample file contents.
 
 =head3 file
 
-  my @plain_array = fancy_open($file);
+  my @plain_array = slurp_affix($file);
 
 The first parameter is the file to be opened. If this is the only parameter specified, the file will be opened, encoded to C<utf-8>, and returned as a list.
 
@@ -85,7 +85,7 @@ The second parameter are the options: C<prefix>, C<suffix>, C<joiner>, C<encodin
 
 =head4 prefix
 
-  my @prefix_array = fancy_open($file, { 'prefix' => 'solid' });
+  my @prefix_array = slurp_affix($file, { 'prefix' => 'solid' });
 
 The C<prefix> option is the string you want prepended to each item in the list. Using the example, all items on the list will be returned with C<foo> prepended to them.
 
@@ -109,7 +109,7 @@ The C<prefix> option is the string you want prepended to each item in the list. 
 
 =head4 suffix
 
-  my @suffix_array = fancy_open($file, { 'suffix' => 'bead; });
+  my @suffix_array = slurp_affix($file, { 'suffix' => 'bead; });
 
 The C<suffix> option is the string you want to appear appended to each item in the list. Using the example, all items on the list will be returned with C<bar> appended to them.
 
@@ -133,7 +133,7 @@ The C<suffix> option is the string you want to appear appended to each item in t
 
 =head4 prefix and suffix
 
-  my @both_array = fancy_open($file, { 'prefix' => 'solid', 'suffix' => 'bead' });
+  my @both_array = slurp_affix($file, { 'prefix' => 'solid', 'suffix' => 'bead' });
 
 Using both the C<prefix> and C<suffix> options together will prepend and append the associated strings to the items in the list.
 
@@ -157,7 +157,7 @@ Using both the C<prefix> and C<suffix> options together will prepend and append 
 
 =head4 joiner
 
-  my @joiner_array = fancy_open($file, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' });
+  my @joiner_array = slurp_affix($file, { 'prefix' => 'solid', 'suffix' => 'bead', 'joiner' => ' ' });
 
 The C<joiner> option will add a string between the prefix, the line from the file, and the suffix. In this case, a single space.
 
@@ -181,13 +181,13 @@ The C<joiner> option will add a string between the prefix, the line from the fil
 
 =head4 encoding
 
-  my @encoded_array = fancy_open($file, { 'encoding' => 'ascii' });
+  my @encoded_array = slurp_affix($file, { 'encoding' => 'ascii' });
 
 The C<encoding> option is the encoding you want to use to open the file. The above file will be opened C<ascii> encoded.
 
 =head4 empty
 
-  my @empty_line = fancy_open($file, { 'empty' => 'fill' });
+  my @empty_line = slurp_affix($file, { 'empty' => 'fill' });
 
 The C<empty> option has three possible values for what to do with empty lines in the file: C<fill>, C<blank>, or C<undefined>. If C<empty> is not used or is any value than the three listed, the empty line will be ignored.
 
@@ -217,7 +217,7 @@ Sample file contents with an empty line.
 
 C<fill> will prefix and suffix the value as it does with all other lines.
 
-  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'fill' });
+  my @empty_line = slurp_affix($file, { 'prefix' => 'solid', 'empty' => 'fill' });
 
 The array returned will be:
 
@@ -245,7 +245,7 @@ The array returned will be:
 
 C<blank> will return a zero length but defined value.
 
-  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'blank' });
+  my @empty_line = slurp_affix($file, { 'prefix' => 'solid', 'empty' => 'blank' });
 
 The array returned will be:
 
@@ -272,7 +272,7 @@ The array returned will be:
 
 C<undefined> will return an undefined value.
 
-  my @empty_line = fancy_open($file, { 'prefix' => 'solid', 'empty' => 'undefined' });
+  my @empty_line = slurp_affix($file, { 'prefix' => 'solid', 'empty' => 'undefined' });
 
 The array returned will be:
 
@@ -299,7 +299,7 @@ The array returned will be:
 
 =head1 DEPENDENCY
 
-Fancy::Open depends on L<Exporter>.
+File::Slurp::Affix depends on L<Exporter>.
 
 =head1 AUTHOR
 
