@@ -7,15 +7,15 @@ use File::ShareDir qw(module_dir);
 
 use Fancy::Rand qw(fancy_rand);
 use Fancy::Map  qw(fancy_map);
-use Fancy::Open qw(fancy_open);
+use File::Slurp::Affix qw(slurp_affix);
 
 our $VERSION   = '1.000';
 our @EXPORT_OK = qw(random_food random_drink);
 
 my $directory = module_dir('Random::Food');
-my @Klondike_flavors = fancy_open("$directory/Klondike_flavors.txt", { 'after' => " Klondike bar" });
-my @Kool_Aid_flavors = fancy_open("$directory/Kool-Aid_flavors.txt", { 'after' => " Kool-Aid" });
-my @MandMs_flavors   = fancy_open("$directory/MandMs_flavors.txt",   { 'after' => " M&M" });
+my @Klondike_flavors = slurp_affix("$directory/Klondike_flavors.txt", { 'after' => " Klondike bar" });
+my @Kool_Aid_flavors = slurp_affix("$directory/Kool-Aid_flavors.txt", { 'after' => " Kool-Aid" });
+my @MandMs_flavors   = slurp_affix("$directory/MandMs_flavors.txt",   { 'after' => " M&M" });
 
 my %foods = (
   'fruits' => [qw(apple apricot banana blueberry cherry cranberry grape grapefruit lemon lime orange peach pear plum raspberry strawberry tomato)],

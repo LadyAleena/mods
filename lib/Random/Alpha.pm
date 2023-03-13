@@ -6,18 +6,18 @@ use Exporter qw(import);
 use File::ShareDir qw(module_dir);
 
 use Fancy::Rand qw(fancy_rand);
-use Fancy::Open qw(fancy_open);
+use File::Slurp::Affix qw(slurp_affix);
 
 our $VERSION   = '1.000';
 our @EXPORT_OK = qw(random_alpha);
 
 my $directory = module_dir('Random::Alpha');
-my @Greek_letters  = fancy_open("$directory/Greek_letters.txt");
-my @Greek_upper_ce = fancy_open("$directory/Greek_upper_ce.txt");
-my @Greek_lower_ce = fancy_open("$directory/Greek_lower_ce.txt");
-my @Hebrew_letters = fancy_open("$directory/Hebrew.txt");
-my @Hebrew_ce      = fancy_open("$directory/Hebrew_ce.txt");
-my @Hebew_final_ce = fancy_open("$directory/Hebrew_final_ce.txt");
+my @Greek_letters  = slurp_affix("$directory/Greek_letters.txt");
+my @Greek_upper_ce = slurp_affix("$directory/Greek_upper_ce.txt");
+my @Greek_lower_ce = slurp_affix("$directory/Greek_lower_ce.txt");
+my @Hebrew_letters = slurp_affix("$directory/Hebrew.txt");
+my @Hebrew_ce      = slurp_affix("$directory/Hebrew_ce.txt");
+my @Hebew_final_ce = slurp_affix("$directory/Hebrew_final_ce.txt");
 
 my @consonants = (1,2,3,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25);
 my @vowels     = (0,4,8,14,20);
