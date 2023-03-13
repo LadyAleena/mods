@@ -6,13 +6,13 @@ use Exporter qw(import);
 use File::ShareDir qw(module_dir);
 
 use Fancy::Rand qw(fancy_rand);
-use Fancy::Open qw(fancy_open);
+use File::Slurp::Affix qw(slurp_affix);
 
 our $VERSION   = '1.000';
 our @EXPORT_OK = qw(random_web_color);
 
 my $directory = module_dir('Random::Color::Web');
-my @css_3     = fancy_open("$directory/css_3.txt");
+my @css_3     = slurp_affix("$directory/css_3.txt");
 
 my %html_colors = (
   'pink'   => [qw(mediumvioletred deeppink palevioletred hotpink lightpink pink)],

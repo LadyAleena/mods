@@ -6,7 +6,7 @@ use Exporter qw(import);
 use File::ShareDir qw(module_dir);
 
 use Fancy::Rand qw(fancy_rand tiny_rand instant_rand);
-use Fancy::Open qw(fancy_open);
+use File::Slurp::Affix qw(slurp_affix);
 use Random::Color qw(random_color);
 use Random::Xanth::Dragon qw(random_Xanth_dragon random_old_Xanth_dragon);
 use Random::RPG::Monster qw(random_RPG_dragon);
@@ -23,8 +23,8 @@ our @EXPORT_OK = qw(
 );
 
 my $directory = module_dir('Random::Dragon');
-my @DreamWorks_dragons   = fancy_open("$directory/DreamWorks_dragons.txt");
-my @Harry_Potter_dragons = fancy_open("$directory/Harry_Potter_dragons.txt");
+my @DreamWorks_dragons   = slurp_affix("$directory/DreamWorks_dragons.txt");
+my @Harry_Potter_dragons = slurp_affix("$directory/Harry_Potter_dragons.txt");
 
 my $dragons;
 $dragons->{'DreamWorks'}   = [@DreamWorks_dragons];
